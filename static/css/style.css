@@ -1,0 +1,100 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.upload-section {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.upload-section label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.upload-section input[type="file"] {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.upload-section button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #28a745;
+    color: #ffffff;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.upload-section button:hover {
+    background-color: #218838;
+}
+
+.table-section {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+table thead {
+    background-color: #007bff;
+    color: white;
+}
+
+table thead th {
+    padding: 10px;
+}
+
+table tbody td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.flash-messages .flash {
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.flash.success {
+    background-color: #28a745;
+    color: white;
+}
+
+.flash.error {
+    background-color: #dc3545;
+    color: white;
+}

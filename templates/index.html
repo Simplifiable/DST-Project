@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+
+        <!-- Flash messages -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    <div class="flash-messages">
+        {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endwith %}
+
+
+        <!-- File upload form -->
+        <div class="upload-section">
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <label for="file">Upload Excel File:</label>
+                <input type="file" id="file" name="file" required>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+
+        <!-- Table to display transactions -->
+        <div class="table-section">
+            <h2>Uploaded Transactions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Amount</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for transaction in transactions %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ transaction.amount }}</td>
+                        <td>{{ transaction.category }}</td>
+                        <td>{{ transaction.date }}</td>
+                        <td>{{ transaction.description }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% if transactions|length == 0 %}
+                    <tr>
+                        <td colspan="5">No transactions found.</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>            
+        </div>
+    </div>
+</body>
+</html>
